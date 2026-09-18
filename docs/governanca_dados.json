@@ -1,16 +1,59 @@
-{ #Base para alunos de SI
-  
-  "licenca_distribuicao": "MIT",
-  "versao_manifesto": "1.0.0",
-  "compliance_lgpd": {
-    "anonimizacao_obrigatoria": true,
-    "politica_retencao_anos": 5,
-    "nivel_acesso_restrito": "Critico"
+{
+  "name": "desafio-w3-si-celula03",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "privacyPolicy": {
+    "version": "1.0",
+    "lastUpdatedAt": "2026-09-17",
+    "dataController": "International Public Health Consortium",
+    "dataProtectionOfficer": {
+      "name": "Jhonatta Pietro",
+      "contact": "jhonatta.pietro@fapce.edu.br"
+    },
+    "compliance_lgpd": {
+      "legalBasisAndPurpose": {
+        "title": "Da Finalidade e Adequação do Tratamento",
+        "description": "O tratamento de dados epidemiológicos destina-se à contenção de surtos e modelagem preditiva de endemias urbanas, respaldado pelo Art. 7º, VIII e Art. 11, II, 'f' da LGPD (tutela da saúde pública) e Art. 9(2)(i) do GDPR.",
+        "frameworks": ["LGPD", "GDPR", "HIPAA"]
+      },
+      "consentAndAccess": {
+        "title": "Do Consentimento e Livre Acesso",
+        "description": "Garante-se a transparência aos titulares, priorizando a extração de dados estatísticos sem associação nominativa direta para a realização de estudos epidemiológicos.",
+        "required": false
+      },
+      "dataSubjectRights": {
+        "title": "Dos Direitos dos Titulares de Dados",
+        "description": "Em estrita conformidade com o Art. 18 da LGPD, assegura-se aos cidadãos a confirmação de tratamento, acesso facilitado e garantia de não identificação através de relatórios abertos.",
+        "requestChannel": "https://data.publichealth.org/privacy"
+      },
+      "securityAndAnonymization": {
+        "title": "Da Segurança da Informação e Anonimização de Pacientes",
+        "description": "Os registros clínicos passam por pseudonimização com hash SHA-256 e técnicas de k-anonimato com agregação espacial de coordenadas para evitar qualquer reidentificação.",
+        "encryptionStandard": "AES-256-GCM",
+        "spatialKAnonymityRadiusMeters": 500
+      },
+      "thirdPartySharing": {
+        "title": "Do Compartilhamento e Transferência Internacional",
+        "description": "A partilha entre as entidades do consórcio internacional é restrita a bases agregadas e modelos matemáticos anonimizados, cumprindo cláusulas padrão de governança transfronteiriça.",
+        "allowCrossBorderTransfer": true
+      },
+      "dataRetentionAndDisposal": {
+        "title": "Do Término do Tratamento e Retenção de Histórico",
+        "description": "Dados brutos de notificação de sintomas são expurgados em até 90 dias. Séries temporais anonimizadas para vigilância histórica são conservadas por até 10 anos.",
+        "rawTelemetryRetentionDays": 90,
+        "aggregatedHistoricalRetentionYears": 10,
+        "disposalMethod": "Cryptographic wipe and verifiable audit log"
+      }
+    }
   },
-  
-  "regras_git": {
-    "bloquear_push_main_direto": true,
-    "exigir_conventional_commits": true
+  "gitConfigurationGovernance": {
+    "historyAuditEnabled": true,
+    "commitConvention": "Conventional Commits (v1.0.0)",
+    "allowedTypes": ["feat", "fix", "docs", "refactor", "test", "chore"],
+    "prohibitDirectMainCommits": true,
+    "traceability": {
+      "requireVerifiedAuthor": true,
+      "weeklyHashAudit": true
+    }
   }
-
 }
